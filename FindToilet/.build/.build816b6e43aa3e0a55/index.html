@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, height=device-height">
+<title>Google Maps on Tizen</title>
+
+<link rel="stylesheet" href="./css/jquery.mobile.1.2.0.css" />
+<link rel="stylesheet" href="./css/jquery.mobile.theme-1.2.0.css" />
+<link rel="stylesheet" href="./css/jquery.mobile.structure-1.2.0.css" />
+<link rel="stylesheet" href="./css/style.css" />
+<script type="text/javascript" src="./js/lib/external/jquery-1.8.0.js"></script>
+<script type="text/javascript" src="./js/lib/external/jquery.mobile-1.2.0.js"></script>
+<script type="text/javascript" src="./js/lib/tlib/tlib.js"></script>
+<script type="text/javascript" src="./js/lib/tlib/tlib.logger.js"></script>
+<script type="text/javascript" src="./js/lib/tlib/tlib.view.js"></script>
+<script type="text/javascript" src="./js/lib/tlib/tlib.network.js"></script>
+<script type="text/javascript" src="./js/lib/tlib/tlib.ajax.js"></script>
+<script type="text/javascript" src="./js/googleMaps/googleLocation.js"></script>
+<script type="text/javascript" src="./js/googleMaps/googleDistance.js"></script>
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDdKjhStoKF6t0xxA_hFxYBmKrEb77b-nQ&sensor=true"></script>
+<script type="text/javascript" src="./js/antiMosquito.js"></script>
+</head>
+
+<body>
+	<div id="infoDiv"></div>
+	<div data-role="page" id="main" data-theme="d">
+		<div data-role="header" data-position="fixed" data-theme="d">
+			<h1>All I want for 화장실</h1>
+		</div>
+		<div data-role="content" data-theme="d">
+			<div id="whereIs"><a href="#toiletMap"><center><img src="img/search_toilet.png" width=180px height=180px align=middle></center></a></div>
+			<!-- <div id="scoring"><a href="#toiletScore">화장실 평가하기</a></div> -->
+			<div id="antiMosquito"><a href="#antiMosquitoSound"  onclick='antiMosquito.play()'><center><img src="img/anti_mosquito.png" width=180px height=180px align=middle></center></a></div>			
+			<div id="close"><a href="#"  onclick='tizen.application.getCurrentApplication().exit();'><center><img src="img/close.png" width=180px height=180px align=middle></center></a></div>
+		</div>
+		<div data-role="popup" class="popup">
+			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+			<p></p>
+		</div>
+	</div>
+	<div data-role="page" id="toiletMap" data-theme="d">
+		<div data-role="header" data-position="fixed" data-theme="d">
+			<h1>화장실 찾기</h1>
+		</div>
+		<div id="map_canvas"></div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#main">Home</a></li>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<div data-role="page" id="toiletScore" data-theme="d">
+		<div data-role="header" data-position="fixed" data-theme="d">
+			<h1>화장실 평가하기</h1>
+		</div>
+		<div class="ui-body ui-body-b ui-corner-all myForm">
+		</div>
+		<div id="searchMap"></div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#main">Home</a></li>
+				</ul>
+			</div>
+		</div>
+		<div data-role="popup" class="popup">
+			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+			<p></p>
+		</div>
+	</div>
+
+	<div data-role="page" id="antiMosquitoSound" data-theme="d">
+		<div data-role="header" data-position="fixed" data-theme="d">
+			<h1>벌레 퇴치</h1>
+		</div>
+		<div class="ui-body ui-body-b ui-corner-all myForm">
+			<audio id="antiMosSoundObject" preload="auto" controls loop src="audio/anti.mosquito.sound.wav"></audio>
+		</div>
+		<div data-role="footer" data-position="fixed">
+			<div data-role="navbar">
+				<ul>
+					<li><a href="#main" onclick='antiMosquito.pause()'>Home</a></li>					
+				</ul>
+			</div>
+		</div>
+		<div data-role="popup" class="popup">
+			<a href="#" data-rel="back" data-role="button" data-theme="a" data-icon="delete" data-iconpos="notext" class="ui-btn-right">Close</a>
+			<p></p>
+		</div>
+	</div>
+</body>
+</html>

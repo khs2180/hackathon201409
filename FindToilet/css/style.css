@@ -1,0 +1,75 @@
+div[data-role="page"] {
+	height: 100%;
+}
+
+div[data-role="content"] {
+	height: 100%;
+	background-image: url('../img/bg_heaven_01.jpg');
+	background-color: transparent;
+	background-size: 100% 100%;
+}
+
+
+html {
+	height: 100%
+}
+
+body {
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+
+#map_canvas {
+	height: 88%;
+	width: 100%;
+}
+
+#toiletScore {
+	height: 85%;
+	width: 100%;
+}
+
+#antiMosquitoSound {
+	height: 85%;
+	width: 100%;
+}
+
+#markersMap {
+	height: 85%;
+	width: 100%;
+}
+
+/* Overides the Google Maps style change for fixed positioned footer */
+.ui-footer-fixed {
+	position: fixed !important;
+}
+
+/* More text in header can be displayed */
+.ui-title {
+	margin: 0.6em 7% .8em !important;
+}
+
+
+#whereIs {
+	position:relative;
+	width:100%;
+	height:auto;	
+	
+}
+#scoring {
+	position:relative;
+	width:100%;
+	height:auto;	
+}
+#antiMosquito {
+	position:relative;
+	width:100%;
+	height:auto;	
+}
+		
+
+.myForm {
+	margin: 10px;
+}
